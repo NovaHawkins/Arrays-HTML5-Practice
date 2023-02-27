@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View HTML</title>
+</head>
+<body>
+
+
+    <!--
+        In this example, we start by getting a reference to the button with an ID of view-btn, the ul element with an ID of myList, and creating an array called items with some initial values.
+
+        We then add an event listener to the view-btn button that will execute a function when it is clicked. This function first clears the contents of the ul element using the innerHTML property.
+
+        Next, the function loops through each item in the items array using the forEach method. For each item, the function creates a new li element using the createElement method, sets its text content to the value of the current item using the createTextNode method, and appends it to the ul element using the appendChild method.
+
+        Finally, the function logs a message to the console indicating that all items have been displayed.
+
+        Now, whenever the user clicks the "View Items" button, the contents of the ul element will be cleared, and a new list item will be appended to the ul element for each item in the items array. The console will also log a message indicating that all items have been displayed.
+
+
+
+
+Regenerate response
+
+
+
+
+
+
+
+    -->
+    <button id="view-btn">View Items</button>
+        <ul id="myList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        </ul>
+
+
+        <script>
+            const viewButton = document.getElementById('view-btn');
+            const list = document.getElementById('myList');
+            const items = ['Item 1', 'Item 2', 'Item 3'];
+
+            viewButton.addEventListener('click', function() {
+            list.innerHTML = '';
+            items.forEach(item => {
+                const li = document.createElement('li');
+                li.appendChild(document.createTextNode(item));
+                list.appendChild(li);
+            });
+            console.log('All items displayed');
+            });
+
+        </script>
+    
+</body>
+</html>

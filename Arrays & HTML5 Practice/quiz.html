@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Thingy</title>
+</head>
+<body>
+
+    <form id="quizSet">
+
+    </form>
+
+    <button id="submitBtn">Submit</button>
+
+    <div id="scoreContainer"></div>
+
+</body>
+
+<script>
+
+const quizSetForm = document.getElementById("quizSet")
+const submitBtn = document.getElementById("submitBtn")
+const scoreContainer = document.getElementById("scoreContainer")
+
+const questionAnswers = [    
+    {        
+        question: "Which of the following is true about 'audio' tag in HTML5?",        
+        correctAns: "wiwi",        
+        incorAns: ["boinkus", "goinkus", "alaBadoinkus"]
+    },
+    {
+        question: "Which of the following is true about Local Storage in HTML5?",
+        correctAns: "pipi",
+        incorAns: ["_____", "_____", "_____"]
+    },
+    {
+        question: "Which of the following attribute triggers event when media data is loaded?",
+        correctAns: "lili",
+        incorAns: ["_____", "_____", "_____"]
+    },
+    {
+        question: "Which of the following method returns a geolocation object in HTML5?",
+        correctAns: "navigator.geolocation",
+        incorAns: ["browser.geolocation", "API.geolocation", "None of the above."]
+    },
+    {
+        question: "Which of the following attribute triggers event when the window loses focus?",
+        correctAns: "onblur",
+        incorAns: ["onbeforeload", "onlostfocus", "lostfocus"]
+    }
+]
+
+questionAnswers.forEach(questionAnswer => {
+    const question = questionAnswer.question
+    const correctAns = questionAnswer.correctAns
+    const incorAnsList = questionAnswer.incorAns
+
+    // creates the question
+    const questionElement = document.createElement("h3")
+    questionElement.textContent = question
+    quizSetForm.appendChild(questionElement)
+
+    // creates the answer options
+    const optionsElement = document.createElement("div")
+
+    // creates the correct answer radio buttons
+    const correctAnsElement = document.createElement("input")
+    correctAnsElement.type = "radio"
+    correctAnsElement.name = question
+    correctAnsElement.value = correctAns
+    optionsElement.appendChild(correctAnsElement)
+
+    const correctAnsLabel = document.createElement("label")
+    correctAnsLabel.textContent = correctAns
+    optionsElement.appendChild(correctAnsLabel)
+
+    // creates the incorrect answer radio buttons
+    incorAnsList.forEach(incorAns => {
+    const incorAnsElement = document.createElement("input")
+    incorAnsElement.type = "radio"
+    incorAnsElement.name = question
+    incorAnsElement.value = incorAns
+    optionsElement.appendChild(incorAnsElement)
+
+    const incorAnsLabel = document.createElement("label")
+    incorAnsLabel.textContent = incorAns
+    optionsElement.appendChild(incorAnsLabel)
+})
+
+    quizSetForm.appendChild(optionsElement)
+})
+
+submitBtn.addEventListener("click", event => {
+    event.preventDefault()
+
+    let score = 0
+    const allQuestions = quizSetForm.querySelectorAll("h2")
+
+    allQuestions.forEach(question => {
+        const selectedAns = quizSetForm.querySelector(`input[name="${question.textContent}"]:checked`)
+
+        if (selectedAns && selectedAns.value === questionAnswers.find(qa => qa.question === question.textContent).correctAns) {
+            score++
+        }
+    })
+
+    const scoreText = `You scored ${score} out of ${questionAnswers.length}.`
+    scoreContainer.textContent = scoreText
+})
+
+</script>
+
+
+
+</html>

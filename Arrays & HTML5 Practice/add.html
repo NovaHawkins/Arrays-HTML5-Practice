@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add</title>
+</head>
+<body>
+
+    <!--In this example, we start by getting a reference to the button with an ID of add-btn, the ul element with an ID of myList, and creating an array called items with some initial values.
+
+We then add an event listener to the add-btn button that will execute a function when it is clicked. This function first prompts the user to enter the text of the new item, and assigns it to a variable called newItem. If the user enters some text and clicks OK, the function pushes the new item onto the items array using the push method.
+
+Next, the function creates a new li element using the createElement method, sets its text content to the value of newItem using the createTextNode method, and appends it to the ul element using the appendChild method.
+
+Finally, the function logs a message to the console indicating which item was added to the array.
+
+Now, whenever the user clicks the "Add Element" button, a prompt will appear asking them to enter the text of the new item. If they enter some text and click OK, the text will be added to the items array and a new list item will be appended to the ul element to display the new item.
+
+
+
+Regenerate response
+
+
+
+
+
+
+    -->
+    <button id="add-btn">Add Element</button>
+    <ul id="myList">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    </ul>
+
+    <script>
+        const addButton = document.getElementById('add-btn');
+            const list = document.getElementById('myList');
+            const items = ['Item 1', 'Item 2', 'Item 3'];
+
+            addButton.addEventListener('click', function() {
+            const newItem = prompt('Enter the text of the new item:');
+            if (newItem) {
+                items.push(newItem);
+                const li = document.createElement('li');
+                li.appendChild(document.createTextNode(newItem));
+                list.appendChild(li);
+                console.log(`Item "${newItem}" added to array`);
+                console.log(items)
+  }
+});
+
+    </script>
+</body>
+</html>

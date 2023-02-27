@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    
+        const numbers = [1, 2, 3, 4, 5];
+
+        const doubledNumbers = numbers.map(function(number) {
+        return number * 2;
+        });
+
+        console.log(doubledNumbers); // Output: [2, 4, 6, 8, 10]
+
+    </script>
+
+
+<!--Sure, here's an example of using the map method in JavaScript to create a new array based on an existing array:
+
+typescript
+Copy code
+const numbers = [1, 2, 3, 4, 5];
+
+const doubledNumbers = numbers.map(function(number) {
+  return number * 2;
+});
+
+console.log(doubledNumbers); // Output: [2, 4, 6, 8, 10]
+In this example, we start with an array of numbers. We then use the map method to create a new array called doubledNumbers that contains each number in the original array multiplied by 2. The map method takes a callback function as its argument that is executed for each element in the original array. The return value of the callback function is used to create the new array.
+
+In this case, the callback function takes each number in the original array and multiplies it by 2. The new value is then added to the doubledNumbers array. The map method creates a new array with the same number of elements as the original array, but with each element transformed based on the return value of the callback function. Finally, we log the doubledNumbers array to the console.
+
+The map method is useful for creating a new array based on an existing array where each element needs to be transformed in a similar way. For example, it could be used to convert an array of strings to uppercase, or to extract a specific property from an array of objects.-->
+</body>
+</html>

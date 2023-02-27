@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student List Array Thingy</title>
+</head>
+<body>
+    
+<div id="listSet">
+    <h1 id="header">Student List</h1>
+
+    <form id="listItems">
+        <label for="filterBox" id="filterLabel">Filter by:</label>
+        <input list="filters" id="filterBox">
+        <datalist id="filters">
+            <option value="Grade">
+            <option value="Age">
+            <option value="Gender">
+        </datalist>
+        <input type="submit" value="Enter">
+    </form>
+
+</div>
+
+
+</body>
+
+<script>
+
+const students = [
+  { name: 'Alice', gradeLevel: 9 },
+  { name: 'Bob', gradeLevel: 10 },
+  { name: 'Charlie', gradeLevel: 9 },
+  { name: 'Dave', gradeLevel: 11 },
+  { name: 'Eve', gradeLevel: 10 }
+];
+
+const filteredStudents = students.filter(student => student.gradeLevel === 10);
+
+console.log(filteredStudents);
+
+</script>
+
+</html>
